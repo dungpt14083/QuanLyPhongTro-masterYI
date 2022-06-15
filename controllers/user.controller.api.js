@@ -15,6 +15,19 @@ exports.postRegister = async (req, res, next) => {
         res.status(400).send(error);
     }
 }
+exports.getAcc = async (req,res,next)=>{
+try{
+    const  user1 = await UserModel.find({},function (err,data){
+        console.log(user1);
+
+    })
+    res.status(200).send(user1);
+
+    }catch (error){
+    console.log(error);
+    res.status(400).send(error);
+}
+}
 //đăng nhập user
 exports.postLogin = async (req, res, next) => {
     try {
